@@ -2,7 +2,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-# Variables normalement dans un autre fichier (variables.tf) mais pour faire simple... ca marche aussi !!!
+# Variables normalement dans un autre fichier (variables.tf) mais pour faire simple.... ca marche aussi !!!
 variable "env" {
   type    = string
   default = "dev"
