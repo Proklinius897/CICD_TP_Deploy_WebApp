@@ -75,7 +75,7 @@ resource "aws_security_group" "chat_server_sg" {
   }
   
   lifecycle {
-    create_before_destroy = true
+    destroy_before_create = true
   }
 }
 
