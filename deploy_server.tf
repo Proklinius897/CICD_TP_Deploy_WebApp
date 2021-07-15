@@ -73,10 +73,6 @@ resource "aws_security_group" "chat_server_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
-  
-  lifecycle {
-    destroy_before_create = true
-  }
 }
 
 resource "aws_instance" "java_server" {
