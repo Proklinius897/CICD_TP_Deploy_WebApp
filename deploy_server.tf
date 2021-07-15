@@ -84,9 +84,9 @@ resource "aws_security_group" "chat_server_sg" {
 }
 
 resource "aws_instance" "java_server" {
-  ami           = data.aws_ami.selected.id
-  subnet_id		= data.aws_subnet.subnet-public-1.id
-  security_groups = ["${aws_security_group.chat_server_sg.name}"]
+  ami = data.aws_ami.selected.id
+  subnet_id	= data.aws_subnet.subnet-public-1.id
+  vpc_security_groups_id = ["${aws_security_group.chat_server_sg.id}"]
   key_name		= "tp_jenkins"
 
   instance_type = "t2.micro"
