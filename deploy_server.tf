@@ -74,6 +74,10 @@ resource "aws_security_group" "chat_server_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
   
+  tags = {
+    Name = "chat_server_sg"
+  }
+  
   lifecycle {
     create_before_destroy = true
   }
