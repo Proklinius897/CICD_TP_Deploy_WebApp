@@ -46,7 +46,7 @@ data "aws_availability_zones" "all" {}
 ## SG Rule chat_server_sg
 resource "aws_security_group" "chat_server_sg" {
 
-  name        = "chat_server_sg"
+  name_prefix = "chat_server_sg"
   description = "Allow TCP 5555 & SSH inbound traffic"
   vpc_id      = data.aws_vpc.selected.id
   
