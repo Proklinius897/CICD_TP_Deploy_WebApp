@@ -73,12 +73,16 @@ resource "aws_security_group" "chat_server_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+  
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_instance" "java_server" {
   ami           = data.aws_ami.selected.id
   subnet_id		= data.aws_subnet.subnet-public-1.id
-  vpc_security_group_ids = [aws_security_group.chat_server_sg.id]
+  security_groups = ["${aws_security_group.chat_server_sg.name}"]
   key_name		= "tp_jenkins"
 
   instance_type = "t2.micro"
